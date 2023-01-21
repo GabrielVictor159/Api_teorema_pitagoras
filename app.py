@@ -1,9 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask
+from flask_cors import CORS, jsonify, request
 import sys
 sys.path.append('src/Controller')
 from CalculosController import CalculosController
 
 app = Flask(__name__)
+CORS(app)
 calculos = CalculosController()
 
 @app.route("/pitagoras/<float:a>/<float:b>", methods=["GET"])
