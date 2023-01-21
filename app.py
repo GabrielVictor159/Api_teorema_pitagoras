@@ -1,21 +1,18 @@
-from flask import Flask
-from flask_cors import CORS, jsonify, cross_origin, request
+from flask import Flask, jsonify, request
+from flask_cors import CORS, cross_origin
 import sys
 sys.path.append('src/Controller')
 from CalculosController import CalculosController
 
 app = Flask(__name__)
+
 CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 calculos = CalculosController()
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
-    return response
+@app.route("/")
+def home():
+    return 'OK'
+
 @app.route("/pitagoras/<float:a>/<float:b>", methods=["GET"])
-@cross_origin()
 def pitagoras_route(a, b):
     c = calculos.pitagoras(a, b)
     return jsonify({"c": c})
