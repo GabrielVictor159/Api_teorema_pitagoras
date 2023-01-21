@@ -1,0 +1,7 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/70081820-e80a-4c4c-95a4-f6a6d76d06f5/AppServices/subscriptions/70081820-e80a-4c4c-95a4-f6a6d76d06f5/resourceGroups/appsvc_linux_centralus2/providers/Microsoft.Web/sites/api-teorema-pitagoras",
+    "appService.deploySubpath": ".",
+    "python.analysis.extraPaths": [
+        "./src/Controller"
+    ]
+}

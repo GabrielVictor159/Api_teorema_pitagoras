@@ -1,0 +1,4 @@
+# Exclude virtual environment
+venv/
+# Exclude installed packages
+lib/
